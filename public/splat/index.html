@@ -75,11 +75,6 @@
         function updateScale() {
           var newScale = document.body.clientHeight / 500;
           var scale = 'scale(' + newScale + ',' +  newScale + ')';
-          // Code for Chrome, Safari, Opera
-          document.getElementById('layout').style.transform = scale;
-          // Code for IE9
-          document.getElementById('layout').style.transform = scale;
-          // Standard syntax
           document.getElementById('layout').style.transform = scale;
         }
         window.onresize = updateScale;
