@@ -1,11 +1,14 @@
 <html>
   <head>
     <title>Splat</title>
+    <script type="text/javascript" src="/script/jquery-1.11.2.min.js"></script> 
     <style>
+      * {
+        font: Verdana, Sans-Serif;
+      }
       body {
         margin: 0;
         padding: 0;
-        font: Verdana, Sans-Serif;
         background: #eee;
       }
       #btnStart {
@@ -61,6 +64,8 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         restart();
+
+        console.log($(window).height());
       }, false);
 
       function restart() {
