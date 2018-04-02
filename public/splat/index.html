@@ -70,7 +70,6 @@
     </style>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        restart();
         function updateScale() {
           var newScale = document.body.clientHeight / 500;
           var scale = 'scale(' + newScale + ',' +  newScale + ')';
@@ -83,6 +82,7 @@
         }
         window.onresize = updateScale;
         updateScale();
+        restart();
       }, false);
 
       function restart() {
