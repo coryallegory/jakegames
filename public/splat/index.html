@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <title>Splat</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font: Verdana, Sans-Serif;
+        background: #eee;
+      }
+      #btnStart {
+        position: absolute;
+        top: 5px;
+        left: 175px;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 20px;
+        text-align: center;
+        vertical-align: middle;
+      }
+      #avatar {
+        font-size: 90px;
+        height: 120px;
+        vertical-align: middle;
+        width: 195px;
+        text-align: center;
+      }
+      #message {
+        height: 30px;
+        width: 195px;
+        text-align: center;
+        margin: 5px;
+      }
+      #guess {
+        background: white;
+        border: solid 1px black;
+        border-radius: 5px;
+        width: 195px;
+        margin: 5px;
+        height: 30px;
+        padding-left: 5px;
+      }
+      .numButton {
+        float: left;
+        text-align: center;
+        border: solid 1px #f9f9f9;
+        background: #ffffff;
+        border-radius: 5px;
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        line-height: 60px;
+        margin: 5px 5px 0 5px;
+      }
+      .clearl {
+        clear: left;
+      }
+
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        restart();
+      }, false);
+
+      function restart() {
+        number = Math.round(Math.random() * 100);
+        clearFields();
+        document.getElementById('message').innerHTML = "Ok! I'm ready!";
+        document.getElementById('avatar').innerHTML = "😃";
+      }
+      function numPress(value) {
+        var guessElem = document.getElementById('guess');
+        guessElem.innerHTML = guessElem.innerHTML + value;
+        document.getElementById('avatar').innerHTML = "🙂";
+        document.getElementById('message').innerHTML = "";
+      }
+      function clearFields() {
+        document.getElementById('guess').innerHTML = "";
+        document.getElementById('message').innerHTML = "";
+        document.getElementById('avatar').innerHTML = "🙂";
+      }
+      function guess() {
+        var messageElem = document.getElementById('message');
+        var value = document.getElementById('guess').innerHTML;
+        if (isNaN(value)) {
+          messageElem.innerHTML = "Bad guess, not a number";
+          document.getElementById('avatar').innerHTML = "😐";
+        } else if (value > 100 || value < 1) {
+          messageElem.innerHTML = "Guess between 1 and 100";
+          document.getElementById('avatar').innerHTML = "😯";
+        } else if (value < number) {
+          messageElem.innerHTML = "HIGHER than " + value;
+          document.getElementById('avatar').innerHTML = "😊";
+          document.getElementById('guess').innerHTML = "";
+        } else if (value > number) {
+          messageElem.innerHTML = "LOWER than " + value;
+          document.getElementById('avatar').innerHTML = "😌";
+          document.getElementById('guess').innerHTML = "";
+        } else if (value == number) {
+          messageElem.innerHTML = "YES it is " + value;
+          document.getElementById('avatar').innerHTML = "😎";
+          document.getElementById('guess').innerHTML = "";
+        } else {
+          messageElem.innerHTML = "ERROR try again";
+          document.getElementById('avatar').innerHTML = "😐";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" id="btnStart" value="↻" onclick="restart()">
+
+    <div id="avatar"></div>
+
+    <div id="message"></div>
+
+    <div class="numpad">
+      <div id="guess"></div>
+      <input type="button" class="numButton clearl" value="1" onclick="numPress(1)">
+      <input type="button" class="numButton" value="2" onclick="numPress(2)">
+      <input type="button" class="numButton" value="3" onclick="numPress(3)">
+      <input type="button" class="numButton clearl" value="4" onclick="numPress(4)">
+      <input type="button" class="numButton" value="5" onclick="numPress(5)">
+      <input type="button" class="numButton" value="6" onclick="numPress(6)">
+      <input type="button" class="numButton clearl" value="7" onclick="numPress(7)">
+      <input type="button" class="numButton" value="8" onclick="numPress(8)">
+      <input type="button" class="numButton" value="9" onclick="numPress(9)">
+      <input type="button" class="numButton clearl" value="X" onclick="clearFields()">
+      <input type="button" class="numButton" value="0" onclick="numPress(0)">
+      <input type="button" class="numButton" value="Go" onclick="guess()">
+    </div>
+
+  </body>
+</html>
