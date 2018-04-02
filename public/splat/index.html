@@ -1,8 +1,6 @@
 <html>
   <head>
     <title>Splat</title>
-    <script type="text/javascript" src="../script/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="/script/jquery-1.11.2.min.js"></script>
     <style>
       body {
         margin: 0;
@@ -47,7 +45,7 @@
         background: white;
         border: solid 1px black;
         border-radius: 5px;
-        width: 195px;
+        width: 185px;
         margin: 5px;
         height: 30px;
         line-height: 30px;
@@ -73,21 +71,18 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         restart();
-
-        console.log($(window).height());
-
         function updateScale() {
-
-            var newScale = $(window).height() / 500;        
-
-            $('#layout').css('transform', 'scale(' + newScale + ',' +  newScale + ')');
-
-            console.log(newScale);
+          var newScale = document.body.clientHeight / 500;
+          var scale = 'scale(' + newScale + ',' +  newScale + ')';
+          // Code for Chrome, Safari, Opera
+          document.getElementById('layout').style.transform = scale;
+          // Code for IE9
+          document.getElementById('layout').style.transform = scale;
+          // Standard syntax
+          document.getElementById('layout').style.transform = scale;
         }
-
-        $(window).resize(updateScale);
+        window.onresize = updateScale;
         updateScale();
-
       }, false);
 
       function restart() {
