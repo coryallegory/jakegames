@@ -18,15 +18,16 @@
         display: inline-block;
         background: #eee;
         transform-origin: top left;
-        height: 500px;
+        height: 480px;
         position: relative;
         font-size: 14px;
-        width: 205px;
+        width: 195px;
+        padding: 5px;
+        text-align: center;
       }
-      #btnStart {
+      #count, #btnStart {
         position: absolute;
         top: 5px;
-        right: 5px;
         width: 30px;
         height: 30px;
         line-height: 30px;
@@ -35,16 +36,23 @@
         text-align: center;
         padding: 0;
       }
+      #count {
+        left: 5px;
+        background: #666666;
+        border: solid #333333 1px;
+        color: white;
+      }
+      #btnStart {
+        right: 5px;
+      }
       #avatar {
         font-size: 90px;
         height: 120px;
         line-height: 120px;
-        width: 195px;
         text-align: center;
       }
       #message {
         height: 30px;
-        width: 195px;
         text-align: center;
         margin: 5px;
       }
@@ -52,11 +60,13 @@
         background: white;
         border: solid 1px black;
         border-radius: 5px;
-        width: 185px;
-        margin: 5px;
+        margin-bottom: 5px;
         height: 30px;
         line-height: 30px;
         padding-left: 5px;
+      }
+      #numPad {
+        float: left;
       }
       .numButton {
         float: left;
@@ -72,13 +82,17 @@
       }
       .clearl {
         clear: left;
+        margin-left: 0;
       }
 
     </style>
     <script>
+      var number;
+      var count;
+
       document.addEventListener('DOMContentLoaded', function() {
         function updateScale() {
-          var newScale = document.body.clientHeight / 500;
+          var newScale = document.body.clientHeight / 480;
           var scale = 'scale(' + newScale + ',' +  newScale + ')';
           document.getElementById('layout').style.transform = scale;
         }
@@ -89,7 +103,9 @@
 
       function restart() {
         number = Math.round(Math.random() * 100);
+        count = 0;
         clearFields();
+        document.getElementById('count').innerHTML = count;
         document.getElementById('message').innerHTML = "Ok! I'm ready!";
         document.getElementById('avatar').innerHTML = "😃";
       }
@@ -115,13 +131,19 @@
           document.getElementById('avatar').innerHTML = "😯";
         } else if (value < number) {
           messageElem.innerHTML = "HIGHER than " + value;
+          count++;
+          document.getElementById('count').innerHTML = count;
           document.getElementById('avatar').innerHTML = "😊";
           document.getElementById('guess').innerHTML = "";
         } else if (value > number) {
           messageElem.innerHTML = "LOWER than " + value;
+          count++;
+          document.getElementById('count').innerHTML = count;
           document.getElementById('avatar').innerHTML = "😌";
           document.getElementById('guess').innerHTML = "";
         } else if (value == number) {
+          count++;
+          document.getElementById('count').innerHTML = count;
           messageElem.innerHTML = "YES it is " + value;
           document.getElementById('avatar').innerHTML = "😎";
           document.getElementById('guess').innerHTML = "";
@@ -134,14 +156,16 @@
   </head>
   <body>
     <div id="layout">
+      <div id="count"></div>
       <input type="button" id="btnStart" value="↻" onclick="restart()" />
 
       <div id="avatar"></div>
 
       <div id="message"></div>
 
-      <div class="numpad">
-        <div id="guess"></div>
+      <div id="guess"></div>
+
+      <div id="numpad">
         <input type="button" class="numButton clearl" value="1" onclick="numPress(1)" />
         <input type="button" class="numButton" value="2" onclick="numPress(2)" />
         <input type="button" class="numButton" value="3" onclick="numPress(3)" />
