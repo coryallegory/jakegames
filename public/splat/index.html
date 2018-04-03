@@ -2,6 +2,7 @@
   <head>
     <title>Splat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href='overlay.css' rel='stylesheet' type='text/css'>
     <style>
       html{
         height: 100%;
@@ -13,16 +14,16 @@
         font-family: Verdana, Sans-Serif;
         background: black;
         text-align: center;
+        overflow: hidden;
       }
       #layout {
         display: inline-block;
         background: #eee;
-        transform-origin: top left;
-        height: 480px;
+        transform-origin: top center;
         position: relative;
         font-size: 14px;
         width: 195px;
-        padding: 5px;
+        padding: 5px 5px 10px 5px;
         text-align: center;
       }
       #menu {
@@ -50,8 +51,6 @@
         background: #666666;
         border: solid #333333 1px;
         color: white;
-      }
-      #btnStart {
       }
       #avatar {
         font-size: 90px;
@@ -99,7 +98,8 @@
 
       document.addEventListener('DOMContentLoaded', function() {
         function updateScale() {
-          var newScale = document.body.clientHeight / 480;
+          var layoutHeight = document.getElementById('layout').offsetHeight;
+          var newScale = document.body.offsetHeight / layoutHeight;
           var scale = 'scale(' + newScale + ',' +  newScale + ')';
           document.getElementById('layout').style.transform = scale;
         }
@@ -108,8 +108,13 @@
         restart();
       }, false);
 
-      function showMenu() {
+      function openNav() {
+        console.log("open nav");
+        document.getElementById("myNav").style.height = "100%";
+      }
 
+      function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
       }
 
       function restart() {
@@ -166,9 +171,20 @@
     </script>
   </head>
   <body>
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+      <!-- Button to close the overlay navigation -->
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <!-- Overlay content -->
+      <div class="overlay-content">
+        <a href="#" onclick="closeNav()">Guess The Number</a>
+      </div>
+    </div>
+
     <div id="layout">
       <div id="menu">
-          <input type="button" id="btnHamburger" value="☰" onclick="showMenu()" />
+          <input type="button" id="btnHamburger" value="☰" onclick="openNav()" />
           <input type="button" id="btnStart" value="↻" onclick="restart()" />
           <div id="count"></div>
       </div>
@@ -194,5 +210,6 @@
         <input type="button" class="numButton" value="Go" onclick="guess()" />
       </div>
     </div>
+    
   </body>
 </html>
