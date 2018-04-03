@@ -25,9 +25,15 @@
         padding: 5px;
         text-align: center;
       }
-      #count, #btnStart {
+      #menu {
+        width: 100%;
         position: absolute;
-        top: 5px;
+        top: 0;
+        left: 0;
+      }
+      #count, #btnStart, #btnHamburger {
+        float: right;
+        clear: right;
         width: 30px;
         height: 30px;
         line-height: 30px;
@@ -35,15 +41,17 @@
         font-size: 20px;
         text-align: center;
         padding: 0;
+        margin: 5px 5px 0 5px;
+      }
+      #btnHamburger {
+        float: left;
       }
       #count {
-        left: 5px;
         background: #666666;
         border: solid #333333 1px;
         color: white;
       }
       #btnStart {
-        right: 5px;
       }
       #avatar {
         font-size: 90px;
@@ -54,7 +62,6 @@
       #message {
         height: 30px;
         text-align: center;
-        margin: 5px;
       }
       #guess {
         background: white;
@@ -100,6 +107,10 @@
         updateScale();
         restart();
       }, false);
+
+      function showMenu() {
+
+      }
 
       function restart() {
         number = Math.round(Math.random() * 100);
@@ -156,8 +167,11 @@
   </head>
   <body>
     <div id="layout">
-      <div id="count"></div>
-      <input type="button" id="btnStart" value="↻" onclick="restart()" />
+      <div id="menu">
+          <input type="button" id="btnHamburger" value="☰" onclick="showMenu()" />
+          <input type="button" id="btnStart" value="↻" onclick="restart()" />
+          <div id="count"></div>
+      </div>
 
       <div id="avatar"></div>
 
