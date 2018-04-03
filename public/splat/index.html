@@ -113,7 +113,7 @@
       }
 
       function restart() {
-        number = Math.round(Math.random() * 100);
+        number = Math.floor(Math.random() * 100) + 1;
         count = 0;
         clearFields();
         document.getElementById('count').innerHTML = count;
@@ -138,7 +138,7 @@
           messageElem.innerHTML = "Bad guess, not a number";
           document.getElementById('avatar').innerHTML = "😐";
         } else if (value > 100 || value < 1) {
-          messageElem.innerHTML = "Guess between 1 and 100";
+          messageElem.innerHTML = "It is between 1 and 100!";
           document.getElementById('avatar').innerHTML = "😯";
         } else if (value < number) {
           messageElem.innerHTML = "HIGHER than " + value;
