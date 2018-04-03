@@ -133,14 +133,12 @@
       }
       function clearFields() {
         document.getElementById('guess').innerHTML = "";
-        document.getElementById('message').innerHTML = "";
-        document.getElementById('avatar').innerHTML = "🙂";
       }
       function guess() {
         var messageElem = document.getElementById('message');
         var value = document.getElementById('guess').innerHTML;
         if (isNaN(value)) {
-          messageElem.innerHTML = "Bad guess, not a number";
+          messageElem.innerHTML = "Is that a number?";
           document.getElementById('avatar').innerHTML = "😐";
         } else if (value > 100 || value < 1) {
           messageElem.innerHTML = "It is between 1 and 100!";
