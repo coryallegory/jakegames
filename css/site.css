@@ -1,0 +1,202 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FCFBE3;
+}
+
+#heading {
+  padding: 0px 10px 0px 10px;
+  background-color: #B6EBCA;
+  height: 75px;
+  border-bottom: solid #6DBCA7 5px;
+  font-family: 'Bree Serif', "Arial Black", sans-serif;
+}
+#mainContent {
+  border-top: solid #4F7B71 20px;
+  padding: 20px;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+#headingTitle {
+  float: left;
+  font-size: 40px;
+  padding-top: 5px;
+}
+#headingTitle img {
+  margin-top: -5px;
+  width: auto;
+  height: 60px;
+}
+#headingUser {
+  float: right;
+  text-align: right;
+  margin-top: 10px;
+}
+#headingUser img {
+  float: right;
+  border: solid #4F7B71 1px;
+  width: 52px;
+  height: 52px;
+}
+
+#userLink {
+  float: right;
+  block: inline;
+  margin-left: 10px;
+}
+
+#logoLink {
+  block: inline;
+  margin-right: 10px;
+}
+
+.authButton {
+  width: 200px;
+}
+
+.authWrapper {
+  float: right;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+#awardsList {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: solid #d3d3d3 1px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.badgeImage {
+  width: 50px;
+  height: 50px;
+}
+
+
+#meSidebar {
+  float: left;
+  display: inline-block;
+}
+
+#meSummary {
+  font-size: 24px;
+  width: 200px;
+  margin-right: 20px;
+}
+#meSummary img {
+  margin-bottom: 10px;
+  width: 200px;
+  height: 200px;
+}
+#meSummary hr {
+  border-top: solid black 1px;
+  width: 90%;
+}
+
+
+#meAchievements {
+  margin-top: 20px;
+  padding: 0 0 10px 10px;
+  display: inline-block;
+  max-width: 200px;
+}
+.achievement {
+  float: left;
+  margin: 10px 10px 0 0;
+  text-align: center;
+}
+
+
+.firstFoundEgg, .foundEgg, .notFoundEgg {
+  font-size: 48px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 0px 10px 10px 0px;
+  text-align: center;
+}
+.foundEgg, .firstFoundEgg {
+  color: #6DBCA7;
+  border: solid #6DBCA7 3px;
+}
+.notFoundEgg {
+  color: #EEEEEE;
+  border: solid #EEEEEE 1px;
+}
+.firstFoundEgg {
+  background-image: url('/firstribbon.png');
+  background-repeat: no-repeat;
+  background-position: 51px top; 
+}
+
+
+.eggTitle {
+  color: #6DBCA7;
+  margin-bottom: 10px;
+  font-size: 72px;
+}
+
+#scoreTable td, #scoreTable th, #puzzleTable td, #puzzleTable th {
+  min-width: 20px;
+  padding: 3px;
+  text-align: center;
+  border: solid #6DBCA7 1px;
+}
+thead {
+  color: #6DBCA7;
+}
+.firstFound {
+  background-color: #D8EBD4;
+}
+
+
+#puzzle {
+  margin: -20px 0 5px 0;
+  padding: 0;
+  text-align: right;
+}
+#puzzle div {
+  background-color: #333333;
+  display: inline-block;
+  padding: 0 0 0 1px;
+}
+#puzzleText {
+  margin: 0;
+  border-width: 0;
+  width: 300px;
+  height: 30px;
+  background-color: white;
+}
+#puzzleSubmit {
+  margin: 0;
+  border-width: 0;
+  height: 30px;
+  width: 50px;
+  background-color: #333333;
+  color: white;
+}
+
+
+.personListing {
+  text-align: left;
+  padding: 25px;
+  font-size: 24px;
+  border-bottom: solid #6DBCA7 2px;
+  height: 150px;
+}
+
+.playerPhoto {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 10px;
+}
+.playerBadges img {
+  width: 25px;
+  height: 25px;
+}
+.playerDetails {
+  margin-top: 3px;
+  font-size: 18px;
+}
