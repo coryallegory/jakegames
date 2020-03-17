@@ -103,10 +103,7 @@
           var layoutHeight = document.getElementById('layout').offsetHeight;
           var newScale = document.body.offsetHeight / layoutHeight;
           var scale = 'scale(' + newScale + ',' +  newScale + ')';
-          var layoutStyle = document.getElementById('layout').style;
-          layoutStyle.transform = scale;
-          layoutStyle.webkitTransform = scale;
-          layoutStyle.msTransform = scale;
+          document.getElementById('layout').style.transform = scale;
         }
         window.onresize = updateScale;
         updateScale();
