@@ -8,5 +8,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   window.onresize = updateScale;
   updateScale();
-  restart();
 }, false);
