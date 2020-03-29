@@ -1,0 +1,68 @@
+#layout {
+  background: white;
+  display: inline-block;
+  transform-origin: top center;
+  position: relative;
+  font-size: 14px;
+  padding: 5px 5px 10px 5px;
+  text-align: center;
+}
+
+div#winBox {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+div#drops {
+  padding: 2px;
+}
+div#drops .drop {
+  display: inline-block;
+  background-image: linear-gradient(lightgray, darkgray);
+  border: solid gray 1px;
+  border-radius: 5px;
+  width: 33px;
+  margin: 2px;
+  text-align: center;
+  vertical-align: top;
+}
+div#drops .drop:hover {
+  background-image: linear-gradient(lightgray, darkgray, darkgray);
+}
+div#drops .drop:active {
+  background: gray;
+}
+div#drops .dropping {
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  animation-name: drop;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes drop {
+  0% {
+    margin-top: 2px;
+    margin-bottom: 10px;
+  }
+  100% {
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+}
+
+
+table#grid {
+  border: solid black 2px;
+  background: yellow;
+  border-spacing: 0;
+}
+table#grid td {
+  border: solid orange 1px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}

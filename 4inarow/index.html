@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Four In A Row</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script type="text/javascript" src="../js/nav.js"></script>
+    <script type="text/javascript" src="js/4inarow.js"></script>
+    <link type='text/css' href='../css/nav.css' rel='stylesheet'>
+    <link type='text/css' href='css/4inarow.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div id="layout">
+      <div id="menu">
+          <input type="button" id="btnHamburger" value="☰" onclick="openNav()" />
+          <input type="button" id="btnStart" value="↻🔴🔵" onclick="restart()" />
+          <div id="count"></div>
+      </div>
+
+      <div id="winBox">Winner!</div>
+      <div id="drops">
+        <div class="drop" id="drop0" onclick="dropPress(0)">👇<div class="dropping">🔴</div></div>
+        <div class="drop" id="drop1" onclick="dropPress(1)">👇<div class="dropping">🔴</div></div>
+        <div class="drop" id="drop2" onclick="dropPress(2)">👇<div class="dropping">🔴</div></div>
+        <div class="drop" id="drop3" onclick="dropPress(3)">👇<div class="dropping">🔴</div></div>
+        <div class="drop" id="drop4" onclick="dropPress(4)">👇<div class="dropping">🔴</div></div>
+        <div class="drop" id="drop5" onclick="dropPress(5)">👇<div class="dropping">🔴</div></div>
+        <div class="drop" id="drop6" onclick="dropPress(6)">👇<div class="dropping">🔴</div></div>
+      </div>
+
+      <table id="grid">
+        <tr>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+        </tr>
+        <tr>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+        </tr>
+        <tr>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+        </tr>
+        <tr>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+        </tr>
+        <tr>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+        </tr>
+        <tr>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+          <td>⚪</td>
+        </tr>
+      </table>
+    
+  </body>
+</html>
