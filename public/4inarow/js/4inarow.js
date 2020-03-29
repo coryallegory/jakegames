@@ -13,10 +13,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 let blankSpace = '⚪';
-let turn = '🔴';
+let player = '🔴';
+let human = '🔵';
+let cat = '😺'; //random, blocks wins
+
+let turn = player;
+let opponent = human;
+
+function restartHuman() {
+  opponent = human;
+  restart();
+}
+
+function restartCat() {
+  opponent = cat;
+  restart();
+}
+
 function restart() {
-  turn = '🔴';
-  document.getElementById('winBox').style.visibility = 'hidden';
+  turn = player;
 
   var cells = document.querySelectorAll("table#grid td");
   let i;
@@ -25,12 +40,15 @@ function restart() {
   }
 
   setDropIcons(turn);
+  document.getElementById('drops').style.visibility = "visible";
 
   var buttons = document.querySelectorAll("div .drop");
   let k;
   for (k=0; k<buttons.length; k++) {
-    buttons[k].style.visibility = "visible";
+    buttons[k].style.visibility = "inherit";
   }
+
+  document.getElementById('status').innerHTML = player + " vs " + opponent;
 }
 
 function dropPress(col) {
@@ -47,9 +65,26 @@ function dropPress(col) {
     document.getElementById("drop"+col).style.visibility = "hidden";
   }
 
-  checkForWin();
+  let over = checkForWin();
+  
+  if (!over) {
+    turn = turn === player ? opponent : player;
+    if (turn === player || turn === human) {
+      document.getElementById('drops').style.visibility = "visible";
+      document.getElementById('playerWaiting').style.visibility = "hidden";
+    }
+    else {
+      document.getElementById('drops').style.visibility = "hidden";
+      document.getElementById('playerWaiting').innerHTML = opponent;
+      document.getElementById('playerWaiting').style.visibility = "visible";
 
-  turn = turn === '🔴' ? '🔵' : '🔴';
+      if (turn === cat) {
+        catMove();
+      }
+
+    }
+  }
+  
   setDropIcons(turn);
 }
 
@@ -111,15 +146,30 @@ function checkForWin() {
     }
   }
   if (win) {
-    let buttons = document.querySelectorAll("div .drop");
-    let k;
-    for (k=0; k<buttons.length; k++) {
-      buttons[k].style.visibility = "hidden";
-    }
+    document.getElementById('drops').style.visibility = "hidden";
+    document.getElementById('playerWaiting').style.visibility = "hidden";
 
-    document.getElementById('winBox').style.visibility = 'visible';
+    document.getElementById('status').innerHTML = turn + " wins!";
 
     console.log("winner");
   }
+
+  return win;
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function catMove() {
+  //"thinking"
+  await sleep(3000);
+
+  let topRow = document.getElementById('grid').rows[0];
+  let col;
+  do {
+    col = Math.floor(Math.random() * 7);
+  }
+  while (topRow.cells[col].innerHTML != blankSpace);
+  dropPress(col);
+}

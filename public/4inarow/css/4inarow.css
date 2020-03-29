@@ -8,11 +8,49 @@
   text-align: center;
 }
 
-div#winBox {
-  position: absolute;
+#menu {
+  width: 100%;
+}
+
+#btnHamburger {
+  float: left;
+}
+
+#btnStart {
+  float: right;
+}
+
+div#status {
+  clear: both;
   width: 100%;
   text-align: center;
-  font-size: 18px;
+}
+
+div#playerWaiting {
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+  margin-top: 10px;
+  animation-name: headBob;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes headBob {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: 20px;
+  }
+  75% {
+    left: -20px;
+  }
+  100% {
+    left: 0px;
+  }
 }
 
 div#drops {
