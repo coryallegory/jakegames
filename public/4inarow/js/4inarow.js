@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
 let blankSpace = '⚪';
 let turn = '🔴';
 function restart() {
+  turn = '🔴';
+  document.getElementById('winBox').style.visibility = 'hidden';
+
   var cells = document.querySelectorAll("table#grid td");
   let i;
   for (i=0; i<cells.length; i++) {
@@ -31,7 +34,6 @@ function restart() {
 }
 
 function dropPress(col) {
-  console.log("pressed button " + col);
   let boardRows = document.getElementById('grid').rows;
   let row;
   for (row=boardRows.length-1; row>=0; row--) {
@@ -64,11 +66,11 @@ function checkForWin() {
   let boardRows = document.getElementById('grid').rows;
   let row, col;
   for (row=0; row<boardRows.length; row++) {
-    if (win) break;
     for (col=0; col<boardRows[row].cells.length; col++) {
+      if (win) break;
       let currentVal = boardRows[row].cells[col].innerHTML;
       if (currentVal === blankSpace) {
-        break;
+        continue;
       }
       //check across, to the right
       if (!win && col < 4) {
@@ -114,6 +116,9 @@ function checkForWin() {
     for (k=0; k<buttons.length; k++) {
       buttons[k].style.visibility = "hidden";
     }
+
+    document.getElementById('winBox').style.visibility = 'visible';
+
     console.log("winner");
   }
 }
