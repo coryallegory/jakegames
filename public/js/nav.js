@@ -1,3 +1,19 @@
+document.addEventListener('DOMContentLoaded', function() {
+  function updateScale() {
+    var layoutWidth = document.getElementById('layout').offsetWidth;
+    var layoutHeight = document.getElementById('layout').offsetHeight;
+    var newScaleA = document.body.offsetWidth / layoutWidth;
+    var newScaleB = document.body.offsetHeight / layoutHeight;
+    var newScale = Math.min(newScaleA, newScaleB);
+    var scale = 'scale(' + newScale + ',' +  newScale + ')';
+    document.getElementById('layout').style.transform = scale;
+  }
+  window.onresize = updateScale;
+  updateScale();
+  restart();
+}, false);
+
+
 function openNav() {
   console.log("open nav");
   document.getElementById("myNav").style.height = "100%";
